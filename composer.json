@@ -1,0 +1,17 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Alura\\Leilao\\": "src/",
+            "Alura\\Leilao\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "php-ds/php-ds": "^1.4"
+    },
+    "scripts": {
+        "test": "docker run -v `pwd`:/workspace --rm alura.phpunit",
+        "build": "docker build -t alura.phpunit .",
+        "dive": "docker run -v `pwd`:/workspace -it --rm alura.phpunit"
+    }
+}
