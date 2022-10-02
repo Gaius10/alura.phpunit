@@ -7,6 +7,7 @@ use Alura\Leilao\Model\Leilao;
 use Alura\Leilao\Model\Usuario;
 use PHPUnit\Framework\TestCase;
 use Alura\Leilao\Service\Avaliador;
+use DateTimeImmutable;
 
 class AvaliadorTest extends TestCase
 {
@@ -20,7 +21,11 @@ class AvaliadorTest extends TestCase
     public function arrange()
     {
         // Arrange - Given
-        $leilao = new Leilao('Fiat 147 0KM');
+        $leilao = new Leilao(
+            'Fiat 147 0KM',
+            new DateTimeImmutable('2022-01-01'),
+            1
+        );
 
         $maria    = new Usuario('Maria');
         $joao     = new Usuario('João');
@@ -40,7 +45,7 @@ class AvaliadorTest extends TestCase
      */
     public function testMaiorValorIsOk(Leilao $leilao)
     {
-        $this->leiloeiro->avalia($leilao);
+        $this->leiloeiro->avaliar($leilao);
         self::assertEquals(2500, $this->leiloeiro->maiorValor());
     }
 
@@ -49,7 +54,7 @@ class AvaliadorTest extends TestCase
      */
     public function testMenorValorIsOk(Leilao $leilao)
     {
-        $this->leiloeiro->avalia($leilao);
+        $this->leiloeiro->avaliar($leilao);
         self::assertEquals(1500, $this->leiloeiro->menorValor());
     }
 
@@ -58,7 +63,7 @@ class AvaliadorTest extends TestCase
      */
     public function testTopTresIsOk(Leilao $leilao)
     {
-        $this->leiloeiro->avalia($leilao);
+        $this->leiloeiro->avaliar($leilao);
         $topTres = $this->leiloeiro->topTres();
 
         self::assertCount(3, $topTres);

@@ -12,7 +12,7 @@ class Avaliador
     private Lance $piorLance;
     private Sequence $ranking;
 
-    public function avalia(Leilao $leilao): void
+    public function avaliar(Leilao $leilao): void
     {
         $this->melhorLance = $leilao->melhorLance();
         $this->piorLance   = $leilao->piorLance();

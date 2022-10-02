@@ -2,6 +2,9 @@
 
 namespace Alura\Leilao\Model;
 
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Ds\Sequence;
 use Ds\Vector;
 use InvalidArgumentException;
@@ -11,9 +14,18 @@ class Leilao
     public readonly Vector $lances;
     private Lance $ultimoLance;
 
-    public function __construct()
-    {
+    public function __construct(
+        public readonly string $descricao,
+        public readonly DateTimeInterface $dataInicio,
+        public readonly int $id,
+        private bool $finalizado = false
+    ) {
         $this->lances = new Vector();
+    }
+
+    public function isFinalizado(): bool
+    {
+        return $this->finalizado;
     }
 
     public function recebeLance(Lance $lance)
@@ -74,5 +86,16 @@ class Leilao
         return $this->lances->sorted(function($l1, $l2) {
             return $l2->valor - $l1->valor;
         });
+    }
+
+    public function finalizar(): void
+    {
+        $this->finalizado = true;
+    }
+
+    public function isVencido(): bool
+    {
+        $idade = $this->dataInicio->diff(new DateTimeImmutable());
+        return $idade->d > 7;
     }
 }

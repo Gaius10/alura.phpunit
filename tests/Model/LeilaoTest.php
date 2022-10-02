@@ -6,6 +6,7 @@ use Alura\Leilao\Model\Lance;
 use Alura\Leilao\Model\Leilao;
 use Alura\Leilao\Model\Usuario;
 use PHPUnit\Framework\TestCase;
+use DateTimeImmutable;
 
 class LeilaoTest extends TestCase
 {
@@ -13,7 +14,11 @@ class LeilaoTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->leilao = new Leilao();
+        $this->leilao = new Leilao(
+            'Teste',
+            new DateTimeImmutable('2022-01-01'),
+            1
+        );
     }
 
     public function lancesEValores()

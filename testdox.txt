@@ -8,3 +8,8 @@ Avaliador (Alura\Leilao\Tests\Service\Avaliador)
  [x] Menor valor is ok with data set #0
  [x] Top tres is ok with data set #0
 
+Encerrador (Alura\Leilao\Tests\Service\Encerrador)
+ [x] Leiloes com mais de uma semana devem ser encerrados
+ [x] Deve continuar o processamento ao encontrar erro ao enviar email
+ [x] So deve enviar leilao por email apos finalizado
+
