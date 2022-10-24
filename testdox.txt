@@ -1,14 +1,14 @@
-Leilao (Alura\Leilao\Tests\Model\Leilao)
+Leilao (Alura\Leilao\Tests\Unit\Model\Leilao)
  [x] Leilao deve receber teste with data set #0
  [x] Leilao nao deve aceitar 2 testes consecutivos da mesma pessoa
  [x] Leilao nao deve aceitar mais de 5 testes por usuario
 
-Avaliador (Alura\Leilao\Tests\Service\Avaliador)
+Avaliador (Alura\Leilao\Tests\Unit\Service\Avaliador)
  [x] Maior valor is ok with data set #0
  [x] Menor valor is ok with data set #0
  [x] Top tres is ok with data set #0
 
-Encerrador (Alura\Leilao\Tests\Service\Encerrador)
+Encerrador (Alura\Leilao\Tests\Unit\Service\Encerrador)
  [x] Leiloes com mais de uma semana devem ser encerrados
  [x] Deve continuar o processamento ao encontrar erro ao enviar email
  [x] So deve enviar leilao por email apos finalizado

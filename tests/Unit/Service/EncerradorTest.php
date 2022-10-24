@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Leilao\Tests\Service;
+namespace Alura\Leilao\Tests\Unit\Service;
 
 use Ds\Vector;
 use Ds\Sequence;

@@ -2,7 +2,6 @@
 
 namespace Alura\Leilao\Model;
 
-use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Ds\Sequence;
